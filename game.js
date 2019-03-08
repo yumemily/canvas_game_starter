@@ -63,6 +63,8 @@ let heroY = canvas.height / 2;
 
 let monsterX = 100;
 let monsterY = 100;
+let monsterXDirection = 1;
+let monsterYDirection = 1;
 
 /** 
  * Keyboard Listeners
@@ -119,7 +121,23 @@ let update = function () {
     // Pick a new location for the monster.
     // Note: Change this to place the monster at a new, random location.
     monsterX = monsterX + 50;
-    monsterY = monsterY + 70;
+    monsterY = monsterY + 70;    
+  }
+  
+  // Move Monster
+  monsterX += 5 * monsterXDirection;
+  monsterY += 5 * monsterYDirection;
+  if(monsterX + 32 > canvas.width) {
+    monsterXDirection = -monsterXDirection;
+  }
+  if(monsterX < 0) {
+    monsterXDirection = -monsterXDirection;
+  }
+  if(monsterY < 0) {
+    monsterYDirection = -monsterYDirection;
+  }
+  if(monsterY + 32 > canvas.height) {
+    monsterYDirection = -monsterYDirection;
   }
 };
 
