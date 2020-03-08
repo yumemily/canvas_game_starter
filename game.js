@@ -7,6 +7,7 @@
 
 let bulletFire = false;
 let isPlaying = false
+let myTime; //timer for the scrolling bg
 let life = 3;
 let score = 0;
 let highScore = 0;
@@ -77,13 +78,6 @@ ctx.font = "30px Verdana";
 
 let bgReady, heroReady, bulletReady, tomReady, isabelleReady, decorReady, firstLeafReady, secondLeafReady, thirdLeafReady, loseReady;
 let bgImage, heroImage, bulletImage, tomImage, isabelleImage, decorImage, firstLeafImage, secondLeafImage, thirdLeafImage, loseImage;
-
-
-
-let startTime = Date.now();
-const SECONDS_PER_ROUND = 0;
-let elapsedTime = 0;
-let myTime;
 
 function loadImages() {
   bgImage = new Image();
@@ -280,7 +274,7 @@ let update = function () {
     }
 
     //Speed of images
-    bulletX += 3;//bullet speed
+  
     isabelleX -= 3;
     tomX -= 3;
 
@@ -289,7 +283,6 @@ let update = function () {
     function shoot() {
       bulletX = heroX + 60;
       bulletY = heroY + 20;
-      clearTimeout(a)
     }
 
     if (32 in keysDown) { // space button triggers bullet
@@ -299,7 +292,6 @@ let update = function () {
       bulletY = heroY + 20;
       if (!bulletX) {
         setTimeout(shoot(), 150); // 150 m/s until bullet starts moving
-        shoot()
         startgame.blur()
       }
     }
@@ -551,3 +543,4 @@ function playAgain() {
   render();
   loadImages();
 }
+
