@@ -1,0 +1,23 @@
+@import url(//db.onlinewebfonts.com/c/cba1b3bd2ba4a505d79a360c06191f56?family=SecondaRoundW00-Regular);
+@font-face {font-family: "SecondaRoundW00-Regular"; src: url("//db.onlinewebfonts.com/t/cba1b3bd2ba4a505d79a360c06191f56.eot"); src: url("//db.onlinewebfonts.com/t/cba1b3bd2ba4a505d79a360c06191f56.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/cba1b3bd2ba4a505d79a360c06191f56.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/cba1b3bd2ba4a505d79a360c06191f56.woff") format("woff"), url("//db.onlinewebfonts.com/t/cba1b3bd2ba4a505d79a360c06191f56.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/cba1b3bd2ba4a505d79a360c06191f56.svg#SecondaRoundW00-Regular") format("svg"); }
+
+*{
+    font-family: SecondaRoundW00-Regular;
+    box-sizing: border-box;
+}
+
+.left-side{
+    background-color: #62B2E3;
+}
+
+.card{
+    background-color: #62B2E3;
+}
+
+.Name{
+    padding-right: 10px;
+}
+
+.row{
+    justify-content: center;
+}
