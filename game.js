@@ -465,13 +465,13 @@ function scoreSubmit() {
   scores.push(match);
 
   newscores = JSON.stringify(scores);
-  updateLeaderboardView();
   saveScores();
+  updateLeaderboardView();
 }
 
 //Updating the Leaderboard, sorts by score
 function updateLeaderboardView() {
-  
+  getScores();
   let leaderboard = document.getElementById("leaderboard");
   leaderboard.innerHTML = "";
 
