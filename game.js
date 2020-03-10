@@ -4,7 +4,7 @@
   using graphics purchased from vectorstock.com
 */
 
-
+let b;
 let bulletFire = false;
 let isPlaying = false
 let myTime; //timer for the scrolling bg
@@ -274,7 +274,7 @@ let update = function () {
     }
 
     //Speed of images
-  
+
     isabelleX -= 3;
     tomX -= 3;
 
@@ -446,8 +446,8 @@ function pauseMusic() {
 let scores = [];
 
 //Displays the user's highest score
-function highestScore(){
-  if (score>highScore){
+function highestScore() {
+  if (score > highScore) {
     highScore = score;
     yourGameHistory.innerHTML = `High Score:  ${highScore}`;
   }
@@ -460,16 +460,18 @@ function scoreSubmit() {
     Score: score
   }
 
-  scores['Name'] = playerName.value;
-  scores['Score'] = score;
+  //scores['Name'] = playerName.value;
+  //scores['Score'] = score;
   scores.push(match);
 
-  highestScore();
+  newscores = JSON.stringify(scores);
   updateLeaderboardView();
+  saveScores();
 }
 
 //Updating the Leaderboard, sorts by score
 function updateLeaderboardView() {
+  
   let leaderboard = document.getElementById("leaderboard");
   leaderboard.innerHTML = "";
 
@@ -484,7 +486,7 @@ function updateLeaderboardView() {
     let Score = document.createElement("div");
     Name.classList.add("Name");
     Score.classList.add("Score");
-    Name.innerText = scores[i].Name+` `;
+    Name.innerText = scores[i].Name + ` `;
     Score.innerText = scores[i].Score;
 
     let scoreRow = document.createElement("div");
@@ -502,6 +504,7 @@ function updateLeaderboardView() {
 
 //Reset the game
 function playAgain() {
+  b;
   isPlaying = false;
   resetBtn.blur();
   bulletFire = false;
@@ -544,3 +547,18 @@ function playAgain() {
   loadImages();
 }
 
+function saveScores(){
+  let str = JSON.stringify(scores);
+  localStorage.setItem("scores",str);
+}
+
+//get data from storage
+function getScores(){
+  let str = localStorage.getItem("scores")
+  scores = JSON.parse(str);
+  if (!scores){
+      scores = [];
+  }
+}
+
+getScores()
